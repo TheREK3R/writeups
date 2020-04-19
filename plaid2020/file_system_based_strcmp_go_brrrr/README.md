@@ -6,7 +6,9 @@
 
 Files: [strcmp.tar.gz](strcmp.tar.gz)
 
-This challenge revolved around [a fat32 file system image](strcmp.fat32). After mounting the image we saw an endless recursive directory full of the alphabet and some other characters. Each directory contained an empty file with a name baiting you for not discovering the flag, such as `TROLOL` or `NOFLAG4U`.
+## Solution
+
+This challenge revolved around [a fat32 file system image](strcmp.fat32). After mounting the image we saw an endless tree of recursive directories full of the alphabet and some other characters. Each directory contained an empty file with a name indicating that you had not found the flag, such as `TROLOL` or `NOFLAG4U`.
 
 We quickly guessed that the directory structure was a file system based trie and that the flag would then be a path through the filesystem, likely to a zero byte file with a congradulatory name. Looking through a strings dump of the filesystem we saw that the file we were looking for was called `MATCH`. Unfortunately the file system recursed extremely deep so any effort to find the flag with a basic find command failed. 
 
